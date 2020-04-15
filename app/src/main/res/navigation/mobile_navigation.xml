@@ -17,4 +17,16 @@
         android:label="@string/title_country"
         tools:layout="@layout/fragment_country" />
 
+    <fragment
+        android:id="@+id/navigation_timeline"
+        android:name="com.example.covid_19tracker.ui.timeline.TimelineFragment"
+        android:label="@string/title_timeline"
+        tools:layout="@layout/fragment_timeline" />
+
+    <fragment
+        android:id="@+id/navigation_india"
+        android:name="com.example.covid_19tracker.ui.india.IndiaFragment"
+        android:label="@string/title_india"
+        tools:layout="@layout/fragment_india" />
+
 </navigation>

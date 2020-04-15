@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.country.CovidCountryDetail"></activity>
+        <activity android:name=".ui.india.IndiaCountryDetail"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

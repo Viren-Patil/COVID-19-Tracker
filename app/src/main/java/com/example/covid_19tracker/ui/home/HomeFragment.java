@@ -36,14 +36,14 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         // call view
-        tvTotalConfirmed = root.findViewById(R.id.tvTotalConfirm);
+        tvTotalConfirmed = root.findViewById(R.id.tvTotalConfirmed);
         tvTotalDeaths = root.findViewById(R.id.tvTotalDeaths);
         tvTotalRecovered = root.findViewById(R.id.tvTotalRecovered);
         tvLastUpdated = root.findViewById(R.id.tvLastUpdated);
         progressBar = root.findViewById(R.id.progress_circular_home);
 
         //Action bar title
-        getActivity().setTitle("Overview");
+        getActivity().setTitle("COVID-19 Tracker");
 
         // call Volley
         getData();

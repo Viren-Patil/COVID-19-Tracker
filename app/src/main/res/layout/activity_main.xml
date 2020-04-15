@@ -13,6 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
+        app:labelVisibilityMode="labeled"
         app:itemTextAppearanceInactive="@style/BottomNavigationView"
         app:itemTextAppearanceActive="@style/BottomNavigationView"
         android:background="@color/colorPrimaryDark"

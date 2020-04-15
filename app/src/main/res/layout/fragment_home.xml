@@ -22,7 +22,7 @@
             android:textSize="24dp"
             android:textAlignment="center"
             android:layout_marginBottom="24dp"
-            android:text="Coronavirus COVID-19\nGlobal Cases"/>
+            android:text="COVID-19\nGlobal Cases"/>
 
         <TextView
             android:id="@+id/tvLabelTotalConfirm"
@@ -33,7 +33,7 @@
             android:text="Total Confirmed"/>
 
         <TextView
-            android:id="@+id/tvTotalConfirm"
+            android:id="@+id/tvTotalConfirmed"
             style="@style/TotalFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
