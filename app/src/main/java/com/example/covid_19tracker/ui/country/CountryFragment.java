@@ -57,9 +57,10 @@ public class CountryFragment extends Fragment {
         progressBar = root.findViewById(R.id.progress_circular_country);
         rvCovidCountry.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvCovidCountry.getContext(), DividerItemDecoration.VERTICAL);
-        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
-        rvCovidCountry.addItemDecoration(dividerItemDecoration);
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvTimeline.getContext(), DividerItemDecoration.VERTICAL);
+//        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
+//        rvTimeline.addItemDecoration(dividerItemDecoration);
+
 
         //call list
         covidCountries = new ArrayList<>();
