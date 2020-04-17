@@ -27,7 +27,7 @@ import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
 
-    private TextView tvTotalConfirmed, tvTotalDeaths, tvTotalRecovered, tvLastUpdated;
+    private TextView tvTotalConfirmed, tvTotalDeaths, tvTotalRecovered, tvLastUpdated, tvTestsPerOneMillion;
     private ProgressBar progressBar;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
         tvTotalConfirmed = root.findViewById(R.id.tvTotalConfirmed);
         tvTotalDeaths = root.findViewById(R.id.tvTotalDeaths);
         tvTotalRecovered = root.findViewById(R.id.tvTotalRecovered);
+        tvTestsPerOneMillion = root.findViewById(R.id.tvTestsPerOneMillion);
         tvLastUpdated = root.findViewById(R.id.tvLastUpdated);
         progressBar = root.findViewById(R.id.progress_circular_home);
 
@@ -62,7 +63,7 @@ public class HomeFragment extends Fragment {
     private void getData() {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
 
-        String url = "https://corona.lmao.ninja/all";
+        String url = "https://corona.lmao.ninja/v2/all";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -75,6 +76,7 @@ public class HomeFragment extends Fragment {
                     tvTotalConfirmed.setText(jsonObject.getString("cases"));
                     tvTotalDeaths.setText(jsonObject.getString("deaths"));
                     tvTotalRecovered.setText(jsonObject.getString("recovered"));
+                    tvTestsPerOneMillion.setText(jsonObject.getString("testsPerOneMillion"));
                     tvLastUpdated.setText("Last Updated"+"\n"+getDate(jsonObject.getLong("updated")));
                 } catch (JSONException e) {
                     e.printStackTrace();

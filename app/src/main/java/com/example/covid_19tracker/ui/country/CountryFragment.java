@@ -57,9 +57,9 @@ public class CountryFragment extends Fragment {
         progressBar = root.findViewById(R.id.progress_circular_country);
         rvCovidCountry.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvTimeline.getContext(), DividerItemDecoration.VERTICAL);
-//        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
-//        rvTimeline.addItemDecoration(dividerItemDecoration);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvCovidCountry.getContext(), DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
+        rvCovidCountry.addItemDecoration(dividerItemDecoration);
 
 
         //call list
@@ -107,11 +107,11 @@ public class CountryFragment extends Fragment {
                             JSONObject countryInfo = data.getJSONObject("countryInfo");
 
                             covidCountries.add(new CovidCountry(
-                                    data.getString("country"), data.getInt("cases"),
-                                    data.getString("todayCases"), data.getString("deaths"),
-                                    data.getString("todayDeaths"), data.getString("recovered"),
-                                    data.getString("active"), data.getString("critical"),
-                                    countryInfo.getString("flag")
+                                    data.getString("country"), data.getString("todayCases"),
+                                    data.getString("deaths"), data.getString("todayDeaths"),
+                                    data.getString("recovered"), data.getString("active"),
+                                    data.getString("critical"), countryInfo.getString("flag"),
+                                    data.getInt("cases")
                             ));
                         }
 
@@ -165,11 +165,11 @@ public class CountryFragment extends Fragment {
                             JSONObject countryInfo = data.getJSONObject("countryInfo");
 
                             covidCountries.add(new CovidCountry(
-                                    data.getString("country"), data.getInt("cases"),
-                                    data.getString("todayCases"), data.getString("deaths"),
-                                    data.getString("todayDeaths"), data.getString("recovered"),
-                                    data.getString("active"), data.getString("critical"),
-                                    countryInfo.getString("flag")
+                                    data.getString("country"), data.getString("todayCases"),
+                                    data.getString("deaths"), data.getString("todayDeaths"),
+                                    data.getString("recovered"), data.getString("active"),
+                                    data.getString("critical"), countryInfo.getString("flag"),
+                                    data.getInt("cases")
                             ));
                         }
 
