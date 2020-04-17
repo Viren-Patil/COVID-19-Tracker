@@ -73,7 +73,7 @@
             android:textColor="@color/colorTotalRecovered"/>
 
         <TextView
-            android:id="@+id/tvLabelTotalRecovered"
+            android:id="@+id/tvLabelTestsPerOneMillion"
             style="@style/LabelFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
