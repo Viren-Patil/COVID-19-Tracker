@@ -44,9 +44,9 @@ public class TimelineFragment extends Fragment {
         progressBar = root.findViewById(R.id.progress_circular_timeline);
         rvTimeline.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvTimeline.getContext(), DividerItemDecoration.VERTICAL);
-//        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
-//        rvTimeline.addItemDecoration(dividerItemDecoration);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvTimeline.getContext(), DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
+        rvTimeline.addItemDecoration(dividerItemDecoration);
 
         //Action bar title
         getActivity().setTitle("India's Timeline (2020)");

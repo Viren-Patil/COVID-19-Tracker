@@ -73,6 +73,22 @@
             android:textColor="@color/colorTotalRecovered"/>
 
         <TextView
+            android:id="@+id/tvLabelTotalRecovered"
+            style="@style/LabelFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTotalConfirmed"
+            android:text="Tests Per One Million"/>
+
+        <TextView
+            android:id="@+id/tvTestsPerOneMillion"
+            style="@style/TotalFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text= "230.0"
+            android:textColor="@color/colorTotalConfirmed"/>
+
+        <TextView
             android:id="@+id/tvLastUpdated"
             style="@style/LabelFontStyle"
             android:textColor="#fff"

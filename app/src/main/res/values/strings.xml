@@ -2,6 +2,6 @@
     <string name="app_name">COVID-19 Tracker</string>
     <string name="title_home">Global</string>
     <string name="title_country">Countries</string>
-    <string name="title_timeline">India\'s Timeline</string>
+    <string name="title_timeline">Timeline</string>
     <string name="title_india">India</string>
 </resources>
