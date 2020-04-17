@@ -108,8 +108,8 @@ public class CountryFragment extends Fragment {
 
                             covidCountries.add(new CovidCountry(
                                     data.getString("country"), data.getString("todayCases"),
-                                    data.getString("deaths"), data.getString("todayDeaths"),
-                                    data.getString("recovered"), data.getString("active"),
+                                    data.getInt("deaths"), data.getString("todayDeaths"),
+                                    data.getInt("recovered"), data.getInt("active"),
                                     data.getString("critical"), countryInfo.getString("flag"),
                                     data.getInt("cases")
                             ));
@@ -166,8 +166,8 @@ public class CountryFragment extends Fragment {
 
                             covidCountries.add(new CovidCountry(
                                     data.getString("country"), data.getString("todayCases"),
-                                    data.getString("deaths"), data.getString("todayDeaths"),
-                                    data.getString("recovered"), data.getString("active"),
+                                    data.getInt("deaths"), data.getString("todayDeaths"),
+                                    data.getInt("recovered"), data.getInt("active"),
                                     data.getString("critical"), countryInfo.getString("flag"),
                                     data.getInt("cases")
                             ));

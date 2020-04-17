@@ -8,20 +8,30 @@
     tools:context=".ui.india.IndiaCountryDetail">
 
     <LinearLayout
-        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
         android:id="@+id/linearLayoutStateName"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content">
+
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view_state"
+            android:layout_marginBottom="16dp"
+            android:layout_width="400dp"
+            android:layout_height="350dp"/>
+
         <TextView
             android:id="@+id/tvDetailState"
             style="@style/TotalFontStyle"
+            android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="30dp"
             tools:text="China"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="20570"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotalConfirmed"
                 android:textSize="26sp"/>
 
@@ -75,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="76"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotaldeaths"
                 android:textSize="26sp"/>
 
@@ -109,7 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="1000"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotalRecovered"
                 android:textSize="26sp"/>
 
@@ -134,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="3"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotalConfirmed"
                 android:textSize="26sp"/>
 

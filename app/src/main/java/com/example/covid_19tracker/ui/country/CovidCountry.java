@@ -4,10 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CovidCountry implements Parcelable {
-    String mCovidCountry, mTodayCases, mDeaths, mTodayDeaths, mRecovered, mActive, mCritical, mFlags;
-    int mCases;
+    String mCovidCountry, mTodayCases, mTodayDeaths, mCritical, mFlags;
+    int mCases, mDeaths, mRecovered, mActive;
 
-    public CovidCountry(String mCovidCountry, String mTodayCases, String mDeaths, String mTodayDeaths, String mRecovered, String mActive, String mCritical, String mFlags, int mCases) {
+    public CovidCountry(String mCovidCountry, String mTodayCases, int mDeaths, String mTodayDeaths, int mRecovered, int mActive, String mCritical, String mFlags, int mCases) {
         this.mCovidCountry = mCovidCountry;
         this.mTodayCases = mTodayCases;
         this.mDeaths = mDeaths;
@@ -27,7 +27,7 @@ public class CovidCountry implements Parcelable {
         return mTodayCases;
     }
 
-    public String getmDeaths() {
+    public int getmDeaths() {
         return mDeaths;
     }
 
@@ -35,11 +35,11 @@ public class CovidCountry implements Parcelable {
         return mTodayDeaths;
     }
 
-    public String getmRecovered() {
+    public int getmRecovered() {
         return mRecovered;
     }
 
-    public String getmActive() {
+    public int getmActive() {
         return mActive;
     }
 
@@ -65,10 +65,10 @@ public class CovidCountry implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.mCovidCountry);
         dest.writeString(this.mTodayCases);
-        dest.writeString(this.mDeaths);
+        dest.writeInt(this.mDeaths);
         dest.writeString(this.mTodayDeaths);
-        dest.writeString(this.mRecovered);
-        dest.writeString(this.mActive);
+        dest.writeInt(this.mRecovered);
+        dest.writeInt(this.mActive);
         dest.writeString(this.mCritical);
         dest.writeString(this.mFlags);
         dest.writeInt(this.mCases);
@@ -77,10 +77,10 @@ public class CovidCountry implements Parcelable {
     protected CovidCountry(Parcel in) {
         this.mCovidCountry = in.readString();
         this.mTodayCases = in.readString();
-        this.mDeaths = in.readString();
+        this.mDeaths = in.readInt();
         this.mTodayDeaths = in.readString();
-        this.mRecovered = in.readString();
-        this.mActive = in.readString();
+        this.mRecovered = in.readInt();
+        this.mActive = in.readInt();
         this.mCritical = in.readString();
         this.mFlags = in.readString();
         this.mCases = in.readInt();
