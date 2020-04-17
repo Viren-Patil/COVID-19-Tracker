@@ -1,19 +1,29 @@
 package com.example.covid_19tracker.ui.india;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.Constraints;
+import androidx.work.NetworkType;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,6 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.covid_19tracker.MainActivity;
 import com.example.covid_19tracker.R;
+import com.example.covid_19tracker.utilities.StateSubscriptionWorker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +40,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class IndiaFragment extends Fragment {
 
@@ -42,6 +54,9 @@ public class IndiaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_india, container, false);
+
+        // set has option menu as true because we have menu
+        setHasOptionsMenu(true);
 
         // call view
         rvIndiaCountry = root.findViewById(R.id.rvIndiaCountry);
@@ -59,6 +74,59 @@ public class IndiaFragment extends Fragment {
         getDataFromServer();
 
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.notification_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_notifications:
+                Toast.makeText(
+                        getContext(),
+                        "Issuing test notification",
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                // enqueue state subscription notification work only when network is present
+                Constraints constraints = new Constraints.Builder()
+                        .setRequiredNetworkType(NetworkType.CONNECTED)
+                        .build();
+                 WorkRequest uploadWorkRequest = new PeriodicWorkRequest.Builder(
+                         StateSubscriptionWorker.class, 2, TimeUnit.HOURS)
+                        .setConstraints(constraints)
+                        .build();
+                WorkManager.getInstance(getContext()).enqueue(uploadWorkRequest);
+
+
+//                Intent intent = new Intent(getContext(), MainActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                PendingIntent pendingIntent = PendingIntent.getActivity(
+//                        getContext(), 0, intent, 0);
+//                NotificationCompat.Builder builder = new NotificationCompat.Builder(
+//                        getContext(), getString(R.string.channel_id))
+//                        .setSmallIcon(R.mipmap.ic_launcher_round)
+//                        .setContentTitle(state)
+//                        .setContentText("Confirmed cases: 3202 (+5 in 4h)")
+//                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+//                        .setContentIntent(pendingIntent)
+//                        .setAutoCancel(true);
+//                NotificationManagerCompat notificationManager =
+//                        NotificationManagerCompat.from(getContext());
+//                notificationManager.notify(121, builder.build());
+
+
+                // Integer.parseInt(Tools.Companion.fetch(getContext(), state, Tools.Companion.getTYPE_NOTIFICATION_ID()))
+//                covidCountries.clear();
+//                progressBar.setVisibility(View.VISIBLE);
+//                getDataFromServerSortAlphabet();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void showRecyclerView() {

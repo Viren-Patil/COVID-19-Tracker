@@ -4,4 +4,7 @@
     <string name="title_country">Countries</string>
     <string name="title_timeline">India\'s Timeline</string>
     <string name="title_india">India</string>
+    <string name="channel_id">121</string>
+    <string name="channel_name">State Live Updates</string>
+    <string name="channel_description">Know state-wise live updates</string>
 </resources>

@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 29
@@ -41,4 +43,20 @@ dependencies {
     // Glide library for image
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Notifications
+    implementation "com.android.support:support-compat:28.0.0"
+
+    // Kotlin support
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // WorkManager API
+    def work_version = "2.3.4"
+    implementation "androidx.work:work-runtime:$work_version" // Java
+    implementation "androidx.work:work-runtime-ktx:$work_version" // Kotlin, coroutines
+}
+repositories {
+    mavenCentral()
 }
