@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // [revisit] temp hack to prefs
-        Tools.Companion.cache(this, "Delhi", 39, 3);
+//        Tools.Companion.cache(this, "Delhi", 39, 3);
 
     }
 

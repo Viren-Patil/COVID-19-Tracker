@@ -51,6 +51,11 @@ class Tools {
             // committing to cache
             editor.putString(state, stateStuff.toString()).apply()
         }
+
+        fun clear(context: Context) {
+            val editor: SharedPreferences.Editor = context.getSharedPreferences("state_subscription", Context.MODE_PRIVATE).edit()
+            editor.clear().apply()
+        }
     }
 
 }
