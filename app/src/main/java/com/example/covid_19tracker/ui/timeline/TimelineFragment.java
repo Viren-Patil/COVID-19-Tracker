@@ -63,7 +63,7 @@ public class TimelineFragment extends Fragment {
     }
 
     private void getTimelineDataFromServer() {
-        String url1 = "https://api.covid19india.org/data.json";
+        String url1 = "https://corona-api.com/countries/IN";
 
         indiaTimelines = new ArrayList<>();
 
@@ -74,11 +74,16 @@ public class TimelineFragment extends Fragment {
                 if (response != null) {
                     Log.e(TAG, "onResponse: " + response);
                     try {
+
                         JSONObject jsonObject = new JSONObject(response);
-                        JSONArray jsonArray = jsonObject.getJSONArray("cases_time_series");
-                        for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject2 = jsonObject.getJSONObject("data");
+                        JSONArray jsonArray = jsonObject2.getJSONArray("timeline");
+
+                        for (int i = jsonArray.length() - 1; i >= 0; i--) {
                             JSONObject data1 = jsonArray.getJSONObject(i);
-                            indiaTimelines.add(new IndiaTimeline(data1.getString("date"), data1.getString("totalconfirmed"), data1.getString("totaldeceased")));
+                            indiaTimelines.add(new IndiaTimeline(data1.getString("date"),
+                                    data1.getString("confirmed"), data1.getString("deaths")
+                            ));
                         }
                         showRecyclerView();
                     } catch (JSONException e) {

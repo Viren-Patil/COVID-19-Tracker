@@ -29,7 +29,7 @@
             style="@style/LabelFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorTotalConfirmed"
+            android:textColor="#fff"
             android:text="Total Confirmed"/>
 
         <TextView
@@ -45,7 +45,7 @@
             style="@style/LabelFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorTotaldeaths"
+            android:textColor="#fff"
             android:text="Total Deaths"/>
 
         <TextView
@@ -61,7 +61,7 @@
             style="@style/LabelFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorTotalRecovered"
+            android:textColor="#fff"
             android:text="Total Recovered"/>
 
         <TextView
@@ -77,7 +77,7 @@
             style="@style/LabelFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorTotalConfirmed"
+            android:textColor="#fff"
             android:text="Tests Per One Million"/>
 
         <TextView
