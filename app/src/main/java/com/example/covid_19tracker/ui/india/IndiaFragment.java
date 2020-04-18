@@ -48,9 +48,9 @@ public class IndiaFragment extends Fragment {
         progressBar = root.findViewById(R.id.progress_circular_india);
         rvIndiaCountry.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvIndiaCountry.getContext(), DividerItemDecoration.VERTICAL);
-//        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
-//        rvIndiaCountry.addItemDecoration(dividerItemDecoration);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvIndiaCountry.getContext(), DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.line_divider));
+        rvIndiaCountry.addItemDecoration(dividerItemDecoration);
 
         //call list
         indiaCountries = new ArrayList<>();
