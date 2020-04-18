@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/gradient_bg"
+    android:background="@color/colorPrimary"
     tools:context=".ui.india.IndiaCountryDetail">
 
     <LinearLayout
@@ -15,11 +15,10 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content">
 
-        <com.anychart.AnyChartView
-            android:id="@+id/any_chart_view_state"
-            android:layout_marginBottom="16dp"
-            android:layout_width="400dp"
-            android:layout_height="350dp"/>
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pie_chart_state"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
 
         <TextView
             android:id="@+id/tvDetailState"
@@ -43,11 +42,15 @@
 
         <LinearLayout
             android:orientation="vertical"
+            android:background="@drawable/rectangle_box"
             android:layout_width="wrap_content"
             android:layout_margin="16dp"
             android:layout_height="wrap_content">
             <TextView
                 style="@style/LabelFontStyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Confirmed"
@@ -57,22 +60,28 @@
             <TextView
                 android:id="@+id/tvDetailConfirmed"
                 style="@style/TotalFontStyle"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="20570"
-                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotalConfirmed"
                 android:textSize="26sp"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/rectangle_box"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_margin="16dp"
             android:layout_height="wrap_content">
             <TextView
                 style="@style/LabelFontStyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Deaths"
@@ -82,10 +91,12 @@
             <TextView
                 android:id="@+id/tvDetailDeaths"
                 style="@style/TotalFontStyle"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="76"
-                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotaldeaths"
                 android:textSize="26sp"/>
 
@@ -101,12 +112,16 @@
         android:layout_below="@+id/linearLayoutOne">
 
         <LinearLayout
+            android:background="@drawable/rectangle_box"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_margin="16dp"
             android:layout_height="wrap_content">
             <TextView
                 style="@style/LabelFontStyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Recovered"
@@ -116,22 +131,28 @@
             <TextView
                 android:id="@+id/tvDetailRecovered"
                 style="@style/TotalFontStyle"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="1000"
-                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotalRecovered"
                 android:textSize="26sp"/>
 
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/rectangle_box"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_margin="16dp"
             android:layout_height="wrap_content">
             <TextView
                 style="@style/LabelFontStyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Active"
@@ -141,10 +162,12 @@
             <TextView
                 android:id="@+id/tvDetailActive"
                 style="@style/TotalFontStyle"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="3"
-                android:layout_marginTop="-7dp"
                 android:textColor="@color/colorTotalConfirmed"
                 android:textSize="26sp"/>
 

@@ -2,30 +2,29 @@ package com.example.covid_19tracker.ui.country;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
-import com.anychart.enums.Align;
-import com.anychart.enums.LegendLayout;
 import com.example.covid_19tracker.R;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CovidCountryDetail extends AppCompatActivity {
 
-    AnyChartView anyChartView;
-
     TextView tvDetailCountryName, tvDetailTotalCases, tvDetailTodayCases, tvDetailTotalDeaths,
             tvDetailTodayDeaths, tvDetailTotalRecovered, tvDetailTotalActive, tvDetailTotalCritical;
-
-    String[] name = new String[3];
-    int[] val = new int[3];
 
 
     @Override
@@ -57,41 +56,32 @@ public class CovidCountryDetail extends AppCompatActivity {
         tvDetailTotalActive.setText(Integer.toString(covidCountry.getmActive()));
         tvDetailTotalCritical.setText(covidCountry.getmCritical());
 
+        PieChart pieChart = findViewById(R.id.pie_chart);
 
-        anyChartView = findViewById(R.id.any_chart_view);
+        List<PieEntry> entries = new ArrayList<>();
 
-        name[0] = "Total Deaths";
-        name[1] = "Total Recovered";
-        name[2] = "Total Active";
+        entries.add(new PieEntry(covidCountry.getmDeaths(), "Total Deaths"));
+        entries.add(new PieEntry(covidCountry.getmRecovered(), "Total Recovered"));
+        entries.add(new PieEntry(covidCountry.getmActive(), "Total Active"));
 
-        val[0] = covidCountry.getmDeaths();
-        val[1] = covidCountry.getmRecovered();
-        val[2] = covidCountry.getmActive();
+        PieDataSet set = new PieDataSet(entries, "Statistics");
+        PieData data = new PieData(set);
+        data.setValueTextSize(15f);
+        data.setValueTextColor(Color.WHITE);
+        set.setColors(ColorTemplate.COLORFUL_COLORS);
+        set.setValueFormatter(new PercentFormatter(pieChart));
+        pieChart.animateXY(1000, 1000);
+        pieChart.getLegend().setEnabled(false);
+        pieChart.setHoleRadius(30);
+        pieChart.setUsePercentValues(true);
+        pieChart.setTransparentCircleRadius(20);
+        pieChart.setHoleColor(Color.parseColor("#101010"));
+        pieChart.setEntryLabelTextSize(10);
 
-        // calling method for pie chart
-        setupPieChart();
-
-
-    }
-
-    public void setupPieChart() {
-
-        Pie pie = AnyChart.pie();
-        List<DataEntry> dataEntries = new ArrayList<>();
-
-        for (int i = 0; i < name.length; i++) {
-            dataEntries.add(new ValueDataEntry(name[i], val[i]));
-        }
-
-        pie.legend()
-                .position("center-bottom")
-                .itemsLayout(LegendLayout.HORIZONTAL)
-                .align(Align.CENTER);
-
-        pie.background().fill("#1a1a1a");
-
-        pie.data(dataEntries);
-        anyChartView.setChart(pie);
+        pieChart.setData(data);
+        pieChart.invalidate();
 
     }
+
+
 }
