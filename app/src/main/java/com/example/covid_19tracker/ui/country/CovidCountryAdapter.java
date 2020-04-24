@@ -45,7 +45,7 @@ public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapte
         CovidCountry covidCountry = covidCountries.get(position);
         holder.tvTotalCases.setText(Integer.toString(covidCountry.getmCases()));
         holder.tvCountryName.setText(covidCountry.getmCovidCountry());
-
+        holder.tvSerialNo.setText(Integer.toString((position+1)));
 
         // Glide
         Glide.with(context)
@@ -60,13 +60,14 @@ public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTotalCases, tvCountryName, tvSerial;
+        TextView tvTotalCases, tvCountryName, tvSerialNo;
         ImageView imgCountryFlag;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTotalCases = itemView.findViewById(R.id.tvTotalCases);
             tvCountryName = itemView.findViewById(R.id.tvCountryName);
+            tvSerialNo = itemView.findViewById(R.id.tvSerialNo);
             imgCountryFlag = itemView.findViewById(R.id.imgCountryFlag);
         }
     }

@@ -1,42 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
-    android:layout_height="wrap_content">
+    android:padding="8dp">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/tvSerialNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            tools:text="1" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="."
+            android:textColor="#fff"
+            android:textSize="17sp" />
+
+
         <ImageView
             android:id="@+id/imgCountryFlag"
-            android:layout_gravity="center"
             android:layout_width="48dp"
-            android:layout_height="32dp"/>
+            android:layout_height="32dp"
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/tvTotalCases"
             style="@style/LabelFontStyle"
-            android:layout_marginLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="43782"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorTotalConfirmed"
             android:textSize="17sp"
-            android:textColor="@color/colorTotalConfirmed"/>
+            tools:text="43782" />
 
         <TextView
             android:id="@+id/tvCountryName"
             style="@style/LabelFontStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="China"
             android:layout_marginLeft="8dp"
+            android:textColor="#fff"
             android:textSize="20sp"
-            android:textColor="#fff"/>
+            tools:text="China" />
 
     </LinearLayout>
 

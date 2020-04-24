@@ -27,20 +27,8 @@ public class CovidCountry implements Parcelable {
         return mTodayCases;
     }
 
-    public int getmDeaths() {
-        return mDeaths;
-    }
-
     public String getmTodayDeaths() {
         return mTodayDeaths;
-    }
-
-    public int getmRecovered() {
-        return mRecovered;
-    }
-
-    public int getmActive() {
-        return mActive;
     }
 
     public String getmCritical() {
@@ -55,6 +43,18 @@ public class CovidCountry implements Parcelable {
         return mCases;
     }
 
+    public int getmDeaths() {
+        return mDeaths;
+    }
+
+    public int getmRecovered() {
+        return mRecovered;
+    }
+
+    public int getmActive() {
+        return mActive;
+    }
+
 
     @Override
     public int describeContents() {
@@ -65,25 +65,25 @@ public class CovidCountry implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.mCovidCountry);
         dest.writeString(this.mTodayCases);
-        dest.writeInt(this.mDeaths);
         dest.writeString(this.mTodayDeaths);
-        dest.writeInt(this.mRecovered);
-        dest.writeInt(this.mActive);
         dest.writeString(this.mCritical);
         dest.writeString(this.mFlags);
         dest.writeInt(this.mCases);
+        dest.writeInt(this.mDeaths);
+        dest.writeInt(this.mRecovered);
+        dest.writeInt(this.mActive);
     }
 
     protected CovidCountry(Parcel in) {
         this.mCovidCountry = in.readString();
         this.mTodayCases = in.readString();
-        this.mDeaths = in.readInt();
         this.mTodayDeaths = in.readString();
-        this.mRecovered = in.readInt();
-        this.mActive = in.readInt();
         this.mCritical = in.readString();
         this.mFlags = in.readString();
         this.mCases = in.readInt();
+        this.mDeaths = in.readInt();
+        this.mRecovered = in.readInt();
+        this.mActive = in.readInt();
     }
 
     public static final Creator<CovidCountry> CREATOR = new Creator<CovidCountry>() {
