@@ -1,6 +1,7 @@
 package com.example.covid_19tracker.ui.country;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
