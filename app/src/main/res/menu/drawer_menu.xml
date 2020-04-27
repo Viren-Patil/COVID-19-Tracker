@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_selector"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_country"
+            android:icon="@drawable/country_selector"
+            android:title="Country" />
+
+        <item
+            android:id="@+id/nav_timeline"
+            android:icon="@drawable/ic_timeline"
+            android:title="Timeline" />
+
+        <item
+            android:id="@+id/nav_india"
+            android:icon="@drawable/ic_india"
+            android:title="India" />
+    </group>
+
+</menu>

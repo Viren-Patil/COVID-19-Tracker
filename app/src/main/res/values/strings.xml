@@ -4,4 +4,7 @@
     <string name="title_country">Countries</string>
     <string name="title_timeline">Timeline</string>
     <string name="title_india">India</string>
+
+    <string name="navigation_drawer_close">Close Navigation Bar</string>
+    <string name="navigation_drawer_open">Open Navigation Bar</string>
 </resources>
