@@ -72,6 +72,7 @@ public class CovidCountryDetail extends AppCompatActivity {
         set.setValueFormatter(new PercentFormatter(pieChart));
         pieChart.animateXY(1000, 1000);
         pieChart.getLegend().setEnabled(false);
+        pieChart.getDescription().setEnabled(false);
         pieChart.setHoleRadius(30);
         pieChart.setUsePercentValues(true);
         pieChart.setTransparentCircleRadius(20);
