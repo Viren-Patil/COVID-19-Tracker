@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.country.CovidCountryDetail"></activity>
-        <activity android:name=".ui.india.IndiaCountryDetail"></activity>
+        <activity android:name=".ui.country.CovidCountryDetail" />
+        <activity android:name=".ui.india.IndiaCountryDetail"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"

@@ -86,6 +86,8 @@ public class IndiaFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 progressBar.setVisibility(View.GONE);
+                String name = "";
+
                 if (response != null) {
                     Log.e(TAG, "onResponse: " + response);
                     try {
@@ -94,9 +96,15 @@ public class IndiaFragment extends Fragment {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject data = jsonArray.getJSONObject(i);
 
+                            if (Integer.parseInt(data.getString("confirmed")) == Integer.parseInt(data.getString("recovered"))) {
+                                name = data.getString("state") + " (Corona Free)";
+                            }else {
+                                name = data.getString("state");
+                            }
+
 
                             indiaCountries.add(new IndiaCountry(
-                                    data.getString("state"), data.getString("recovered"),
+                                    name, data.getString("recovered"),
                                     data.getString("deaths"), data.getString("active"),
                                     data.getString("confirmed")
                             ));

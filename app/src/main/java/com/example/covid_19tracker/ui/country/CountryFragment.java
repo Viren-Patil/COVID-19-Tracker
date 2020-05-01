@@ -97,6 +97,7 @@ public class CountryFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 progressBar.setVisibility(View.GONE);
+                String name = "";
                 if (response != null) {
                     Log.e(TAG, "onResponse: " + response);
                     try {
@@ -107,8 +108,14 @@ public class CountryFragment extends Fragment {
                             // Extract JSONObject inside JSONObject
                             JSONObject countryInfo = data.getJSONObject("countryInfo");
 
+                            if(data.getInt("recovered") == data.getInt("cases")) {
+                                name = data.getString("country") + " (Corona Free)";
+                            }else {
+                                name = data.getString("country");
+                            }
+
                             covidCountries.add(new CovidCountry(
-                                    data.getString("country"), data.getString("todayCases"),
+                                    name, data.getString("todayCases"),
                                     data.getInt("deaths"), data.getString("todayDeaths"),
                                     data.getInt("recovered"), data.getInt("active"),
                                     data.getString("critical"), countryInfo.getString("flag"),
@@ -155,6 +162,7 @@ public class CountryFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 progressBar.setVisibility(View.GONE);
+                String name = "";
                 if (response != null) {
                     Log.e(TAG, "onResponse: " + response);
                     try {
@@ -165,8 +173,14 @@ public class CountryFragment extends Fragment {
                             // Extract JSONObject inside JSONObject
                             JSONObject countryInfo = data.getJSONObject("countryInfo");
 
+                            if(data.getInt("recovered") == data.getInt("cases")) {
+                                name = data.getString("country") + " (Corona Free)";
+                            }else {
+                                name = data.getString("country");
+                            }
+
                             covidCountries.add(new CovidCountry(
-                                    data.getString("country"), data.getString("todayCases"),
+                                    name, data.getString("todayCases"),
                                     data.getInt("deaths"), data.getString("todayDeaths"),
                                     data.getInt("recovered"), data.getInt("active"),
                                     data.getString("critical"), countryInfo.getString("flag"),
